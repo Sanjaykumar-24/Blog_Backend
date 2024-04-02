@@ -1,8 +1,9 @@
 const typeDefs = `
-  type Users{
+  type User{
     username : String!,
     password : String!,
-    dob : String!
+    dob : String!,
+    getPosts : [Posts]!
   }
 
   type Posts{
@@ -25,8 +26,13 @@ const typeDefs = `
     password : String!
    }
 
+   input Token{
+     token : String!
+   }
+
    type Query{
      login(loginuser:loginUser!) : String!
+     oauth(token:Token!) : User!
    }
 
    type Mutation{
