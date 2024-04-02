@@ -3,6 +3,6 @@ const generateToken=(user)=>{
      const token = jwt.sign(user,process.env.SECRET_KEY,{
         expiresIn:"30d"
      })
-    return token
+     return token
 } 
 export default generateToken

@@ -2,12 +2,12 @@ import generateToken from '../token.js'
 import { userModel } from "../schema.js"
 import bcrypt from 'bcrypt'
 async function register(_,{newuser:{username,password,dob}})
-   {
+{
    try{
    const user = await userModel.findOne({username:username})
    if(user)
    {
-      return JSON.stringify({message:"Failer",error:"user already exists"})
+      return JSON.stringify({message:"Failed",error:"user already exists"})
    }
    else
    {
@@ -33,6 +33,7 @@ async function register(_,{newuser:{username,password,dob}})
      return JSON.stringify({message:"Failed",error:"internal server error"})
    }
 }
+
 
 
 async function login(_,{loginuser:{username,password}})

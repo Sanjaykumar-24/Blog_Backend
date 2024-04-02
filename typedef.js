@@ -1,16 +1,25 @@
 const typeDefs = `
+  input NewPost{
+    content : String!,
+    date : String!,
+    genre : String!
+  }
+
   type User{
     username : String!,
     password : String!,
     dob : String!,
-    getPosts : [Posts]!
+    getPosts : [Posts]!,
+    myPosts : [Posts]!,
+    addPost(newpost:NewPost) : String!,
+    deletePost(id:ID!) : String!
   }
 
   type Posts{
     username : String!,
     content : String!,
     date : String!,
-    genre: String!,
+    genre : String!,
     likes : Int!,
     dislikes : Int!
   }
@@ -32,8 +41,9 @@ const typeDefs = `
 
    type Query{
      login(loginuser:loginUser!) : String!
-     oauth(token:Token!) : User!
+     auth(token:Token!) : User!
    }
+
 
    type Mutation{
      register(newuser:NewUser!) : String!

@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 import { userModel } from '../schema.js'
-async function oauth(_,{token:{token}})
+async function auth(_,{token:{token}})
 {
     try{
          const user = await jwt.verify(token,process.env.SECRET_KEY)
@@ -28,4 +28,4 @@ async function oauth(_,{token:{token}})
     }
 }
 
-export {oauth}
+export {auth}

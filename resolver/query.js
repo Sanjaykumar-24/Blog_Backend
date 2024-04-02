@@ -1,7 +1,7 @@
 import { login } from "../routes/auth.js"
-import { oauth } from "../routes/oauth.js"
+import { auth } from "../routes/authorization.js"
 const query = {
    login,
-   oauth
+   auth
 }
 export default query

@@ -7,7 +7,7 @@ import resolvers from './resolver.js'
 dotenv.config()
 
 mongoose.connect(process.env.MONGO_URI).then(()=>{
-    console.log('database connection sucessful..!!')
+    console.log('database connection successful..!!')
 }).catch(()=>{
     console.log('database connection unsucessful..!!')
 })
